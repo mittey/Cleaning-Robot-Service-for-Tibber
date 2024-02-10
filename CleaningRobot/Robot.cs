@@ -6,31 +6,31 @@ namespace CleaningRobot;
 public sealed class Robot
 {
     private readonly VisitableArea _cleaningArea;
+    private readonly Point _position;
 
     public Robot(Point initialPosition, VisitableArea cleaningArea)
     {
         _cleaningArea = cleaningArea;
-        Position = initialPosition;
+        _position = initialPosition;
 
-        _cleaningArea.Visit(Position);
+        _cleaningArea.Visit(_position);
     }
 
-    public Point Position { get; }
 
     public int CleanedArea => _cleaningArea.VisitedCount;
 
-    public void ExecuteCommand(CleaningRobotCommand command)
+    public void Execute(CleaningRobotCommand command)
     {
         for (var i = 0; i < command.Steps; i++)
         {
-            Position.Move(command.Direction);
-            _cleaningArea.Visit(Position);
+            _position.Move(command.Direction);
+            _cleaningArea.Visit(_position);
         }
     }
 
-    public void ExecuteCommandSequence(IEnumerable<CleaningRobotCommand> commandSequence)
+    public void Execute(IEnumerable<CleaningRobotCommand> commandSequence)
     {
         foreach (var command in commandSequence)
-            ExecuteCommand(command);
+            Execute(command);
     }
 }

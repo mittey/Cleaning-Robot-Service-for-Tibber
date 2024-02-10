@@ -25,8 +25,8 @@ public class RobotTests
     [Fact]
     public void ShouldBeCreatedWithTheInitialPosition()
     {
-        Assert.Equal(InitialX, _testRobot.Position.X);
-        Assert.Equal(InitialY, _testRobot.Position.Y);
+        Assert.Equal(InitialX, _initialPosition.X);
+        Assert.Equal(InitialY, _initialPosition.Y);
     }
 
     [Fact]
@@ -47,10 +47,10 @@ public class RobotTests
         const int steps = 1;
         var command = new CleaningRobotCommand(MovementDirection.Up, steps);
 
-        _testRobot.ExecuteCommand(command);
+        _testRobot.Execute(command);
 
-        Assert.Equal(InitialX, _testRobot.Position.X);
-        Assert.Equal(InitialY + steps, _testRobot.Position.Y);
+        Assert.Equal(InitialX, _initialPosition.X);
+        Assert.Equal(InitialY + steps, _initialPosition.Y);
     }
 
     [Fact]
@@ -59,10 +59,10 @@ public class RobotTests
         const int steps = 1;
         var command = new CleaningRobotCommand(MovementDirection.Right, steps);
 
-        _testRobot.ExecuteCommand(command);
+        _testRobot.Execute(command);
 
-        Assert.Equal(InitialX + steps, _testRobot.Position.X);
-        Assert.Equal(InitialY, _testRobot.Position.Y);
+        Assert.Equal(InitialX + steps, _initialPosition.X);
+        Assert.Equal(InitialY, _initialPosition.Y);
     }
 
     [Fact]
@@ -71,10 +71,10 @@ public class RobotTests
         const int steps = 1;
         var command = new CleaningRobotCommand(MovementDirection.Down, steps);
 
-        _testRobot.ExecuteCommand(command);
+        _testRobot.Execute(command);
 
-        Assert.Equal(InitialX, _testRobot.Position.X);
-        Assert.Equal(InitialY - steps, _testRobot.Position.Y);
+        Assert.Equal(InitialX, _initialPosition.X);
+        Assert.Equal(InitialY - steps, _initialPosition.Y);
     }
 
     [Fact]
@@ -83,10 +83,10 @@ public class RobotTests
         const int steps = 1;
         var command = new CleaningRobotCommand(MovementDirection.Left, steps);
 
-        _testRobot.ExecuteCommand(command);
+        _testRobot.Execute(command);
 
-        Assert.Equal(InitialX - steps, _testRobot.Position.X);
-        Assert.Equal(InitialY, _testRobot.Position.Y);
+        Assert.Equal(InitialX - steps, _initialPosition.X);
+        Assert.Equal(InitialY, _initialPosition.Y);
     }
 
     [Fact]
@@ -95,9 +95,9 @@ public class RobotTests
         const int steps = 3;
         var command = new CleaningRobotCommand(MovementDirection.Up, steps);
 
-        _testRobot.ExecuteCommand(command);
+        _testRobot.Execute(command);
 
-        Assert.Equal(1 + steps, _testRobot.Position.Y);
+        Assert.Equal(1 + steps, _initialPosition.Y);
     }
 
     [Fact]
@@ -106,7 +106,7 @@ public class RobotTests
         const int steps = 3;
         var command = new CleaningRobotCommand(MovementDirection.Up, steps);
 
-        _testRobot.ExecuteCommand(command);
+        _testRobot.Execute(command);
 
         Assert.Equal(steps + 1, _testRobot.CleanedArea);
     }
@@ -114,11 +114,11 @@ public class RobotTests
     [Fact]
     public void ShouldNotCountAlreadyVisitedCellsAsCleaned()
     {
-        _testRobot.ExecuteCommand(new CleaningRobotCommand(MovementDirection.Up, 1));
-        _testRobot.ExecuteCommand(new CleaningRobotCommand(MovementDirection.Right, 1));
-        _testRobot.ExecuteCommand(new CleaningRobotCommand(MovementDirection.Down, 1));
-        _testRobot.ExecuteCommand(new CleaningRobotCommand(MovementDirection.Left, 1));
-        _testRobot.ExecuteCommand(new CleaningRobotCommand(MovementDirection.Up, 1));
+        _testRobot.Execute(new CleaningRobotCommand(MovementDirection.Up, 1));
+        _testRobot.Execute(new CleaningRobotCommand(MovementDirection.Right, 1));
+        _testRobot.Execute(new CleaningRobotCommand(MovementDirection.Down, 1));
+        _testRobot.Execute(new CleaningRobotCommand(MovementDirection.Left, 1));
+        _testRobot.Execute(new CleaningRobotCommand(MovementDirection.Up, 1));
 
         Assert.Equal(4, _testRobot.CleanedArea);
     }

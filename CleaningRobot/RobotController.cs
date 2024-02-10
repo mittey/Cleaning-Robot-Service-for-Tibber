@@ -15,7 +15,7 @@ public static class RobotController
         var cleaningArea = new VisitableArea(twoHundredThousand, twoHundredThousand);
         var cleaningRobot = new Robot(executionPlan.InitialPosition, cleaningArea);
 
-        cleaningRobot.ExecuteCommandSequence(executionPlan.CommandSequence);
+        cleaningRobot.Execute(executionPlan.CommandSequence);
 
         watch.Stop();
 
