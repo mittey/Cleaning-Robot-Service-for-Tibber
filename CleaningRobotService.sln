@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api", "Api\Api.csproj", "{B8544DCA-3767-4E5C-9BAE-6E630F1327ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleaningRobot", "CleaningRobot\CleaningRobot.csproj", "{E2A37E20-3D57-4DE9-81A5-82AAAA9D29D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{F04FA7C7-08A2-44E8-8A2D-8904567F2CA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8544DCA-3767-4E5C-9BAE-6E630F1327ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8544DCA-3767-4E5C-9BAE-6E630F1327ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8544DCA-3767-4E5C-9BAE-6E630F1327ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8544DCA-3767-4E5C-9BAE-6E630F1327ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2A37E20-3D57-4DE9-81A5-82AAAA9D29D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2A37E20-3D57-4DE9-81A5-82AAAA9D29D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2A37E20-3D57-4DE9-81A5-82AAAA9D29D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2A37E20-3D57-4DE9-81A5-82AAAA9D29D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F04FA7C7-08A2-44E8-8A2D-8904567F2CA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F04FA7C7-08A2-44E8-8A2D-8904567F2CA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F04FA7C7-08A2-44E8-8A2D-8904567F2CA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F04FA7C7-08A2-44E8-8A2D-8904567F2CA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
