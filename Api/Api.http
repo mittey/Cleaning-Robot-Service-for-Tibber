@@ -1,6 +1,37 @@
-@Api_HostAddress = http://localhost:5286
+POST http://localhost:5286/tibber-developer-test/enter-path
+Content-Type: application/json
 
-GET {{Api_HostAddress}}/weatherforecast/
-Accept: application/json
+{
+  "start": {
+    "x": 10,
+    "y": 22
+  },
+  "commands": [
+    {
+      "direction": "east",
+      "steps": 2
+    },
+    {
+      "direction": "north",
+      "steps": 1
+    },
+    {
+      "direction": "east",
+      "steps": 2
+    },
+    {
+      "direction": "north",
+      "steps": 1
+    },
+    {
+      "direction": "east",
+      "steps": 2
+    },
+    {
+      "direction": "north",
+      "steps": 1000
+    }
+  ]
+}
 
 ###

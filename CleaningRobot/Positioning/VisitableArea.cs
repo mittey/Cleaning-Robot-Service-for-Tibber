@@ -1,33 +1,28 @@
 namespace CleaningRobot.Positioning;
 
+internal record struct GridKey(int X, int Y);
+
 public class VisitableArea
 {
-    private readonly Cell[,] _grid;
-
-    public VisitableArea(int height, int width)
-    {
-        _grid = new Cell[height, width];
-
-        for (var i = 0; i < _grid.GetLength(0); i++)
-        for (var j = 0; j < _grid.GetLength(1); j++)
-            _grid[i, j] = new Cell();
-    }
-
-    public int Height => _grid.GetLength(0);
-    public int Width => _grid.GetLength(1);
+    private readonly Dictionary<GridKey, bool> _grid2 = new();
 
     public int VisitedCount { get; private set; }
 
     public void Visit(Point p)
     {
-        if (_grid[p.X, p.Y].Visited) return;
+        var key = new GridKey(p.X, p.Y);
+
+        if (_grid2.TryGetValue(key, out var isVisited) && isVisited) return;
 
         VisitedCount++;
-        _grid[p.X, p.Y].Visit();
+        _grid2[key] = true;
     }
 
     public bool IsVisited(Point p)
     {
-        return _grid[p.X, p.Y].Visited;
+        var key = new GridKey(p.X, p.Y);
+        _grid2.TryAdd(key, false);
+
+        return _grid2[key];
     }
 }

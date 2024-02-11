@@ -7,23 +7,23 @@ public sealed class Point(int x, int y)
     public int X { get; private set; } = x;
     public int Y { get; private set; } = y;
 
-    public void Move(MovementDirection direction)
+    public void Move(RobotMovementDirection direction)
     {
         switch (direction)
         {
-            case MovementDirection.Up:
+            case RobotMovementDirection.Up:
                 Y++;
                 break;
 
-            case MovementDirection.Down:
+            case RobotMovementDirection.Down:
                 Y--;
                 break;
 
-            case MovementDirection.Left:
+            case RobotMovementDirection.Left:
                 X--;
                 break;
 
-            case MovementDirection.Right:
+            case RobotMovementDirection.Right:
                 X++;
                 break;
 

@@ -10,12 +10,11 @@ public static class RobotController
     {
         var watch = Stopwatch.StartNew();
 
-        const int twoHundredThousand = 2 * 1000;
 
-        var cleaningArea = new VisitableArea(twoHundredThousand, twoHundredThousand);
+        var cleaningArea = new VisitableArea();
         var cleaningRobot = new Robot(executionPlan.InitialPosition, cleaningArea);
 
-        cleaningRobot.Execute(executionPlan.CommandSequence);
+        cleaningRobot.Execute(executionPlan.CommandsSequence);
 
         watch.Stop();
 

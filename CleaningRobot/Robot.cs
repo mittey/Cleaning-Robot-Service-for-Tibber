@@ -25,6 +25,9 @@ public sealed class Robot
         {
             _position.Move(command.Direction);
             _cleaningArea.Visit(_position);
+
+            // Simulate robot movement. Each step takes 5ms to execute.
+            Thread.Sleep(5);
         }
     }
 

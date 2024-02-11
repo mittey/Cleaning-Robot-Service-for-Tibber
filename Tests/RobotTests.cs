@@ -17,7 +17,7 @@ public class RobotTests
     public RobotTests()
     {
         _initialPosition = new Point(InitialX, InitialY);
-        _cleaningArea = new VisitableArea(100, 100);
+        _cleaningArea = new VisitableArea();
         _testRobot = new Robot(_initialPosition, _cleaningArea);
     }
 
@@ -45,7 +45,7 @@ public class RobotTests
     public void ShouldIncreaseXMovingUp()
     {
         const int steps = 1;
-        var command = new CleaningRobotCommand(MovementDirection.Up, steps);
+        var command = new CleaningRobotCommand(RobotMovementDirection.Up, steps);
 
         _testRobot.Execute(command);
 
@@ -57,7 +57,7 @@ public class RobotTests
     public void ShouldIncreaseYMovingRight()
     {
         const int steps = 1;
-        var command = new CleaningRobotCommand(MovementDirection.Right, steps);
+        var command = new CleaningRobotCommand(RobotMovementDirection.Right, steps);
 
         _testRobot.Execute(command);
 
@@ -69,7 +69,7 @@ public class RobotTests
     public void ShouldDecreaseXMovingDown()
     {
         const int steps = 1;
-        var command = new CleaningRobotCommand(MovementDirection.Down, steps);
+        var command = new CleaningRobotCommand(RobotMovementDirection.Down, steps);
 
         _testRobot.Execute(command);
 
@@ -81,7 +81,7 @@ public class RobotTests
     public void ShouldDecreaseYMovingLeft()
     {
         const int steps = 1;
-        var command = new CleaningRobotCommand(MovementDirection.Left, steps);
+        var command = new CleaningRobotCommand(RobotMovementDirection.Left, steps);
 
         _testRobot.Execute(command);
 
@@ -93,7 +93,7 @@ public class RobotTests
     public void ShouldMoveTheRightAmountOfSteps()
     {
         const int steps = 3;
-        var command = new CleaningRobotCommand(MovementDirection.Up, steps);
+        var command = new CleaningRobotCommand(RobotMovementDirection.Up, steps);
 
         _testRobot.Execute(command);
 
@@ -104,7 +104,7 @@ public class RobotTests
     public void ShouldHaveCleanedTheProperAreaAfterExecuting()
     {
         const int steps = 3;
-        var command = new CleaningRobotCommand(MovementDirection.Up, steps);
+        var command = new CleaningRobotCommand(RobotMovementDirection.Up, steps);
 
         _testRobot.Execute(command);
 
@@ -114,11 +114,11 @@ public class RobotTests
     [Fact]
     public void ShouldNotCountAlreadyVisitedCellsAsCleaned()
     {
-        _testRobot.Execute(new CleaningRobotCommand(MovementDirection.Up, 1));
-        _testRobot.Execute(new CleaningRobotCommand(MovementDirection.Right, 1));
-        _testRobot.Execute(new CleaningRobotCommand(MovementDirection.Down, 1));
-        _testRobot.Execute(new CleaningRobotCommand(MovementDirection.Left, 1));
-        _testRobot.Execute(new CleaningRobotCommand(MovementDirection.Up, 1));
+        _testRobot.Execute(new CleaningRobotCommand(RobotMovementDirection.Up, 1));
+        _testRobot.Execute(new CleaningRobotCommand(RobotMovementDirection.Right, 1));
+        _testRobot.Execute(new CleaningRobotCommand(RobotMovementDirection.Down, 1));
+        _testRobot.Execute(new CleaningRobotCommand(RobotMovementDirection.Left, 1));
+        _testRobot.Execute(new CleaningRobotCommand(RobotMovementDirection.Up, 1));
 
         Assert.Equal(4, _testRobot.CleanedArea);
     }

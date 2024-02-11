@@ -1,6 +1,6 @@
 namespace CleaningRobot.Commands.Enums;
 
-public enum MovementDirection
+public enum RobotMovementDirection
 {
     Up,
     Down,

@@ -4,21 +4,14 @@ namespace Tests;
 
 public class VisitableAreaTests
 {
-    private const int Width = 100, Height = 200;
-    private readonly VisitableArea _testArea = new(Height, Width);
+    private readonly VisitableArea _testArea = new();
 
-    [Fact]
-    public void ShouldInitAGridWithTheProvidedDimensions()
-    {
-        Assert.Equal(Width, _testArea.Width);
-        Assert.Equal(Height, _testArea.Height);
-    }
 
     [Fact]
     public void ShouldInitAllCellsInGridAsNonVisited()
     {
-        for (var x = 0; x < _testArea.Height; x++)
-        for (var y = 0; y < _testArea.Width; y++)
+        for (var x = 0; x < 5; x++)
+        for (var y = 0; y < 10; y++)
             Assert.False(_testArea.IsVisited(new Point(x, y)));
     }
 

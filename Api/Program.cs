@@ -8,7 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped(typeof(CleaningRobotService));
+builder.Services.AddScoped<CleaningRobotService>();
+builder.Services.AddScoped<ExecutionLoggingService>();
 
 var app = builder.Build();
 

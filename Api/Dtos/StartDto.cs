@@ -1,7 +1,4 @@
 namespace Api.Dtos;
 
-public class StartDto
-{
-    public int X { get; set; }
-    public int Y { get; set; }
-}
+// ReSharper disable once ClassNeverInstantiated.Global
+public record StartDto(int X, int Y);

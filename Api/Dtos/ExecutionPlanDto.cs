@@ -1,6 +1,3 @@
 namespace Api.Dtos;
 
-public class ExecutionPlanDto
-{
-    public StartDto Start { get; set; }
-}
+public record ExecutionPlanDto(StartDto Start, IEnumerable<CommandDto> Commands);

@@ -3,8 +3,4 @@ using CleaningRobot.Positioning;
 
 namespace CleaningRobot.Models;
 
-public class ExecutionPlan(Point initialPosition, IEnumerable<CleaningRobotCommand> commandsSequence)
-{
-    public Point InitialPosition { get; private set; } = initialPosition;
-    public IEnumerable<CleaningRobotCommand> CommandSequence { get; private set; } = commandsSequence;
-}
+public sealed record ExecutionPlan(Point InitialPosition, IEnumerable<CleaningRobotCommand> CommandsSequence);
