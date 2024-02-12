@@ -12,7 +12,15 @@ Content-Type: application/json
       "steps": 2
     },
     {
-      "direction": "north",
+      "direction": "south",
+      "steps": 1
+    },
+    {
+      "direction": "east",
+      "steps": 2
+    },
+    {
+      "direction": "west",
       "steps": 1
     },
     {
@@ -21,15 +29,7 @@ Content-Type: application/json
     },
     {
       "direction": "north",
-      "steps": 1
-    },
-    {
-      "direction": "east",
-      "steps": 2
-    },
-    {
-      "direction": "north",
-      "steps": 1000
+      "steps": 3
     }
   ]
 }

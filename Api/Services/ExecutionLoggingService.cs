@@ -1,11 +1,14 @@
 using CleaningRobot.Models;
+using Data;
+using Data.Entities;
 
 namespace Api.Services;
 
-public class ExecutionLoggingService
+// ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
+public class ExecutionLoggingService(ExecutionLogRepository repository)
 {
-    public void LogExecutionResult(ExecutionResult executionResult)
+    public virtual async Task LogExecutionResultAsync(ExecutionResult executionResult)
     {
-        Console.WriteLine(executionResult);
+        await repository.AddExecutionLogAsync(new ExecutionLog { AreaCleaned = executionResult.AreaCleaned });
     }
 }

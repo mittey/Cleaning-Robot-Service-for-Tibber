@@ -1,14 +1,14 @@
-using CleaningRobot.Commands;
-using CleaningRobot.Positioning;
+using CleaningRobot.Robot.Commands;
+using CleaningRobot.Robot.Positioning;
 
-namespace CleaningRobot;
+namespace CleaningRobot.Robot;
 
-public sealed class Robot
+public sealed class RobotImpl
 {
     private readonly VisitableArea _cleaningArea;
     private readonly Point _position;
 
-    public Robot(Point initialPosition, VisitableArea cleaningArea)
+    public RobotImpl(Point initialPosition, VisitableArea cleaningArea)
     {
         _cleaningArea = cleaningArea;
         _position = initialPosition;

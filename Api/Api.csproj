@@ -21,7 +21,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\CleaningRobot\CleaningRobot.csproj"/>
-        <ProjectReference Include="..\Data\Data.csproj" />
+        <ProjectReference Include="..\Data\Data.csproj"/>
     </ItemGroup>
 
 </Project>

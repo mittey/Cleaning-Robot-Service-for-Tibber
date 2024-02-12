@@ -1,6 +1,6 @@
-using CleaningRobot.Commands.Enums;
+using CleaningRobot.Robot.Commands.Enums;
 
-namespace CleaningRobot.Positioning;
+namespace CleaningRobot.Robot.Positioning;
 
 public sealed class Point(int x, int y)
 {

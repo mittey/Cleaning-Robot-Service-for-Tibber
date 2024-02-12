@@ -1,4 +1,4 @@
-namespace CleaningRobot.Commands.Enums;
+namespace CleaningRobot.Robot.Commands.Enums;
 
 public enum RobotMovementDirection
 {

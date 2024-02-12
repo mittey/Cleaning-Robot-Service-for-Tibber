@@ -1,15 +1,16 @@
-using CleaningRobot;
 using CleaningRobot.Models;
+using CleaningRobot.Robot;
 
 namespace Api.Services;
 
-public class CleaningRobotService(ExecutionLoggingService loggingService)
+// ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
+public class CleaningRobotService(ExecutionLoggingService loggingService, RobotController robotController)
 {
-    public ExecutionResult Execute(ExecutionPlan executionPlan)
+    public virtual async Task<ExecutionResult> ExecuteAsync(ExecutionPlan executionPlan)
     {
-        var result = RobotController.Execute(executionPlan);
+        var result = robotController.Execute(executionPlan);
 
-        loggingService.LogExecutionResult(result);
+        await loggingService.LogExecutionResultAsync(result);
 
         return result;
     }

@@ -1,4 +1,4 @@
-namespace Api.Dtos;
+namespace Api.Dtos.Enums;
 
 public enum MovementDirection
 {

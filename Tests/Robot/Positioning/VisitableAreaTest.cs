@@ -1,11 +1,10 @@
-using CleaningRobot.Positioning;
+using CleaningRobot.Robot.Positioning;
 
-namespace Tests;
+namespace Tests.Robot.Positioning;
 
-public class VisitableAreaTests
+public class VisitableAreaTest
 {
     private readonly VisitableArea _testArea = new();
-
 
     [Fact]
     public void ShouldInitAllCellsInGridAsNonVisited()

@@ -1,5 +1,5 @@
-using CleaningRobot.Commands.Enums;
+using CleaningRobot.Robot.Commands.Enums;
 
-namespace CleaningRobot.Commands;
+namespace CleaningRobot.Robot.Commands;
 
 public sealed record CleaningRobotCommand(RobotMovementDirection Direction, int Steps);

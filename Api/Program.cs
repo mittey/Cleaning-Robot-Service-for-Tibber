@@ -1,5 +1,7 @@
 using Api.Dtos;
 using Api.Services;
+using CleaningRobot.Robot;
+using Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<CleaningRobotService>();
 builder.Services.AddScoped<ExecutionLoggingService>();
+
+builder.Services.AddScoped<RobotController>();
+
+builder.Services.AddDbContext<CleaningRobotServiceDbContext>();
+builder.Services.AddScoped<ExecutionLogRepository>();
 
 var app = builder.Build();
 
@@ -22,13 +29,20 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+using (var scope = app.Services.CreateScope())
+using (var dbContext = scope.ServiceProvider.GetService<CleaningRobotServiceDbContext>())
+{
+    dbContext!.Database.EnsureCreated();
+}
 
+
+// The api endpoint for the task.
 app.MapPost("/tibber-developer-test/enter-path",
         (ExecutionPlanDto executionPlanDto, CleaningRobotService cleaningRobotService) =>
         {
             var executionPlan = CommandMappingService.Map(executionPlanDto);
 
-            return cleaningRobotService.Execute(executionPlan);
+            return cleaningRobotService.ExecuteAsync(executionPlan);
         })
     .WithName("RunCleaningRobot")
     .WithOpenApi();

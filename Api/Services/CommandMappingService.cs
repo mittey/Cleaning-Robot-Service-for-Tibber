@@ -1,8 +1,9 @@
 using Api.Dtos;
-using CleaningRobot.Commands;
-using CleaningRobot.Commands.Enums;
+using Api.Dtos.Enums;
 using CleaningRobot.Models;
-using CleaningRobot.Positioning;
+using CleaningRobot.Robot.Commands;
+using CleaningRobot.Robot.Commands.Enums;
+using CleaningRobot.Robot.Positioning;
 
 namespace Api.Services;
 
