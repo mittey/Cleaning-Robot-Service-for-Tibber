@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  api:
+    build:
+      context: "/Users/dima/Documents/dev/assignments/CleaningRobotService"
+      dockerfile: "Api/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Api.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "api:dev"
+    ports: []
+    volumes:
+    - "/Users/dima/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/dima/Documents/dev/assignments/CleaningRobotService/Api:/app:rw"
+    - "/Users/dima/Documents/dev/assignments/CleaningRobotService:/src:rw"
+    working_dir: "/app"

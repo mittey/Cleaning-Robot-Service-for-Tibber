@@ -24,6 +24,19 @@
       PGADMIN_DEFAULT_EMAIL: admin@admin.com
       PGADMIN_DEFAULT_PASSWORD: root
     restart: unless-stopped
+  
+  api:
+    container_name: cleaning-robot-service
+    image: api
+    ports:
+      - "5001:8080"
+    build:
+      context: .
+      dockerfile: Api/Dockerfile
+    environment:
+      Database: "Host=pg;Database=cleaning_robot_service_db;Username=admin;Password=root"
+
 
 volumes:
   postgres-data:
+
