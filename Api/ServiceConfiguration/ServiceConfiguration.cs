@@ -3,6 +3,7 @@ using Api.Services;
 using CleaningRobot.Robot;
 using Data;
 using Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace Api.ServiceConfiguration;
 
@@ -15,7 +16,15 @@ public static class ServiceConfiguration
 
         builder.Services.AddScoped<RobotController>();
 
-        builder.Services.AddDbContext<CleaningRobotServiceDbContext>();
+        builder.Services.AddDbContext<CleaningRobotServiceDbContext>(options =>
+        {
+            var config = builder.Configuration["Database"];
+
+            // For debug purposes.
+            Console.WriteLine($"CONNECTION STRING -> {config}");
+
+            options.UseNpgsql(config);
+        });
         builder.Services.AddScoped<ExecutionLogRepository>();
     }
 
