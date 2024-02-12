@@ -16,6 +16,8 @@ public class RobotController
 
         watch.Stop();
 
-        return new ExecutionResult(cleaningRobot.CleanedArea, watch.ElapsedMilliseconds);
+        return new ExecutionResult(cleaningRobot.CleanedArea, executionPlan.CommandSequence.Count(),
+            watch.ElapsedMilliseconds
+        );
     }
 }

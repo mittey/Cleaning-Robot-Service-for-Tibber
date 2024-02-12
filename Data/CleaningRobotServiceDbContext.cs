@@ -3,9 +3,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Data;
 
-public class CleaningRobotServiceDbContext(DbContextOptions options) : DbContext(options)
+public class CleaningRobotServiceDbContext : DbContext
 {
-    // ReSharper disable once PropertyCanBeMadeInitOnly.Global
+    protected CleaningRobotServiceDbContext()
+    {
+    }
 
+    public CleaningRobotServiceDbContext(DbContextOptions options) : base(options)
+    {
+    }
+
+    // ReSharper disable once PropertyCanBeMadeInitOnly.Globalƒ
     public virtual DbSet<ExecutionLog> Executions { get; set; } = null!;
 }

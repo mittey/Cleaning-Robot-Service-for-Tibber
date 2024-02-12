@@ -22,7 +22,7 @@ public class CleaningRobotServiceTest
 
         loggerServiceMock.Setup(m => m.LogExecutionResultAsync(It.IsAny<ExecutionResult>()))
             .Returns(Task.CompletedTask);
-        robotControllerMock.Setup(m => m.Execute(It.IsAny<ExecutionPlan>())).Returns(new ExecutionResult(1, 2));
+        robotControllerMock.Setup(m => m.Execute(It.IsAny<ExecutionPlan>())).Returns(new ExecutionResult(1, 2, 10));
 
         var robotService = new CleaningRobotService(loggerServiceMock.Object, robotControllerMock.Object);
         await robotService.ExecuteAsync(new ExecutionPlan(new Point(1, 2),

@@ -20,13 +20,13 @@ public class ExecutionLoggingServiceTest
             .Callback<ExecutionLog>(log => testExecLog = log)
             .Returns(Task.CompletedTask);
 
-        var execResult = new ExecutionResult(12, 100);
+        var execResult = new ExecutionResult(12, 3, 100);
 
         var loggingService = new ExecutionLoggingService(repoMock.Object);
         await loggingService.LogExecutionResultAsync(execResult);
 
         repoMock.Verify(m => m.AddExecutionLogAsync(It.IsAny<ExecutionLog>()), Times.Once());
         Assert.NotNull(testExecLog);
-        Assert.Equal(execResult.AreaCleaned, testExecLog.AreaCleaned);
+        Assert.Equal(execResult.AreaCleaned, testExecLog.Result);
     }
 }
