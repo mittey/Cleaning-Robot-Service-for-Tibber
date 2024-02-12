@@ -4,7 +4,7 @@ using CleaningRobot.Robot;
 using Data;
 using Data.Repositories;
 
-namespace Api.Configuration;
+namespace Api.ServiceConfiguration;
 
 public static class ServiceConfiguration
 {
