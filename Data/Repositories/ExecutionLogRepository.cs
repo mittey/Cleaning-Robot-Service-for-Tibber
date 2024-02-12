@@ -1,6 +1,6 @@
 using Data.Entities;
 
-namespace Data;
+namespace Data.Repositories;
 
 // ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
 public class ExecutionLogRepository(CleaningRobotServiceDbContext dbContext)

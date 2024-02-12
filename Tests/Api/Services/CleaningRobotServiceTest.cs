@@ -5,6 +5,7 @@ using CleaningRobot.Robot.Commands;
 using CleaningRobot.Robot.Commands.Enums;
 using CleaningRobot.Robot.Positioning;
 using Data;
+using Data.Repositories;
 using Moq;
 
 namespace Tests.Api.Services;

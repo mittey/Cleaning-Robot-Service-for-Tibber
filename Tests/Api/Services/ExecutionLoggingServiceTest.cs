@@ -2,6 +2,7 @@ using Api.Services;
 using CleaningRobot.Models;
 using Data;
 using Data.Entities;
+using Data.Repositories;
 using Moq;
 
 namespace Tests.Api.Services;

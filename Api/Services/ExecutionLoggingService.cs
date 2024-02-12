@@ -1,6 +1,6 @@
 using CleaningRobot.Models;
-using Data;
 using Data.Entities;
+using Data.Repositories;
 
 namespace Api.Services;
 
