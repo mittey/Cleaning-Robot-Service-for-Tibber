@@ -35,6 +35,7 @@
       dockerfile: Api/Dockerfile
     environment:
       Database: "Host=pg;Database=cleaning_robot_service_db;Username=admin;Password=root"
+      ASPNETCORE_ENVIRONMENT: "Development"
     depends_on:
       - postgres
 

@@ -15,8 +15,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
-
 // Configure our apps routes etc.
 app.ConfigureApp();
 

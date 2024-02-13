@@ -56,4 +56,16 @@ public class PointTest
     {
         Assert.Throws<ArgumentOutOfRangeException>(() => _testPoint.Move((RobotMovementDirection)(-1)));
     }
+
+    [Fact]
+    public void ShouldBeAbleToBeCreatedWithEdgeCaseValues()
+    {
+        const int x = 1 * 100 * 1000;
+        const int y = -x;
+
+        var point = new Point(x, y);
+
+        Assert.Equal(x, point.X);
+        Assert.Equal(y, point.Y);
+    }
 }

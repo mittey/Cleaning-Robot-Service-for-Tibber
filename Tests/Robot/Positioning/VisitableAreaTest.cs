@@ -41,4 +41,16 @@ public class VisitableAreaTest
             pointsToVisit.Length - 1,
             _testArea.VisitedCount);
     }
+
+    [Fact]
+    public void ShouldBeAbleToVisitAnEdgeCasePoint()
+    {
+        const int x = 1 * 100 * 1000;
+        const int y = -x;
+        var point = new Point(x, y);
+
+        _testArea.Visit(point);
+
+        Assert.True(_testArea.IsVisited(point));
+    }
 }
