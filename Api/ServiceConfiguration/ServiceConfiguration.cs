@@ -35,7 +35,7 @@ public static class ServiceConfiguration
         using var dbContext = scope.ServiceProvider.GetService<CleaningRobotServiceDbContext>();
         {
             dbContext!.Database.EnsureDeleted();
-            dbContext!.Database.EnsureCreated();
+            dbContext.Database.EnsureCreated();
         }
         // The api endpoint for the task.
         app.MapPost("/tibber-developer-test/enter-path",

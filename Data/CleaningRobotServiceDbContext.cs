@@ -13,6 +13,6 @@ public class CleaningRobotServiceDbContext : DbContext
     {
     }
 
-    // ReSharper disable once PropertyCanBeMadeInitOnly.Globalƒ
+    // ReSharper disable once PropertyCanBeMadeInitOnly.Global
     public virtual DbSet<ExecutionLog> Executions { get; set; } = null!;
 }
