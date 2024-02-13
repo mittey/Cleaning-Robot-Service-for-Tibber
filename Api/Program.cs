@@ -17,7 +17,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Configure our apps route etc.
+// Configure our apps routes etc.
 app.ConfigureApp();
 
 app.Run();

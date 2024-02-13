@@ -37,6 +37,7 @@ public static class ServiceConfiguration
             dbContext!.Database.EnsureDeleted();
             dbContext.Database.EnsureCreated();
         }
+        
         // The api endpoint for the task.
         app.MapPost("/tibber-developer-test/enter-path",
                 (ExecutionPlanDto executionPlanDto, CleaningRobotService cleaningRobotService) =>
