@@ -14,24 +14,17 @@ internal static class GridKeyExtensions
 
 public class VisitableArea
 {
-    private readonly Dictionary<GridKey, bool> _grid = new();
+    private readonly HashSet<GridKey> _visited = [];
 
-    public int VisitedCount { get; private set; }
+    public int VisitedCount => _visited.Count;
 
     public void Visit(Point p)
     {
-        var key = p.ToGridKey();
-        if (_grid.TryGetValue(key, out var isVisited) && isVisited) return;
-
-        VisitedCount++;
-        _grid[key] = true;
+        _visited.Add(p.ToGridKey());
     }
 
     public bool IsVisited(Point p)
     {
-        var key = p.ToGridKey();
-        _grid.TryAdd(key, false);
-
-        return _grid[key];
+        return _visited.Contains(p.ToGridKey());
     }
 }

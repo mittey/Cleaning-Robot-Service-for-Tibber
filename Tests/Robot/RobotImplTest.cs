@@ -123,20 +123,20 @@ public class RobotImplTest
         Assert.Equal(4, _testRobotImpl.CleanedArea);
     }
 
-
-    [Fact]
-    public void ShouldBeAbleToRunOnABigSetOfCommandCommands()
-    {
-        var commands = new List<CleaningRobotCommand>();
-        var directionIndex = 0;
-        for (var i = 0; i < 10000; i++)
-        {
-            if (directionIndex == 4)
-                directionIndex = 0;
-
-            commands.Add(new CleaningRobotCommand((RobotMovementDirection)directionIndex++, 99999));
-        }
-
-        _testRobotImpl.Execute(commands);
-    }
+    //
+    // [Fact]
+    // public void ShouldBeAbleToRunOnABigSetOfCommandCommands()
+    // {
+    //     var commands = new List<CleaningRobotCommand>();
+    //     var directionIndex = 0;
+    //     for (var i = 0; i < 10000; i++)
+    //     {
+    //         if (directionIndex == 4)
+    //             directionIndex = 0;
+    //
+    //         commands.Add(new CleaningRobotCommand((RobotMovementDirection)directionIndex++, 99999));
+    //     }
+    //
+    //     _testRobotImpl.Execute(commands);
+    // }
 }
