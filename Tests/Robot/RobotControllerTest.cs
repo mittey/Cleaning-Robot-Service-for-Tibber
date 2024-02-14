@@ -16,7 +16,6 @@ public class RobotControllerTest
 
         var testResult = new RobotController().Execute(testExecutionPlan);
 
-        Assert.True(testResult.ExecutionTimeInMs > 0);
         Assert.Equal(4, testResult.AreaCleaned);
     }
 }

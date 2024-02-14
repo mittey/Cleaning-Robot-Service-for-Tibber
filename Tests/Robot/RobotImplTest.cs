@@ -125,7 +125,7 @@ public class RobotImplTest
 
 
     [Fact]
-    public void ShouldBeAbleToRunEdgeCaseCommands()
+    public void ShouldBeAbleToRunOnABigSetOfCommandCommands()
     {
         var commands = new List<CleaningRobotCommand>();
         var directionIndex = 0;
