@@ -9,27 +9,11 @@ Content-Type: application/json
   "commands": [
     {
       "direction": "east",
-      "steps": 2
-    },
-    {
-      "direction": "south",
       "steps": 1
-    },
-    {
-      "direction": "east",
-      "steps": 2
-    },
-    {
-      "direction": "west",
-      "steps": 1
-    },
-    {
-      "direction": "east",
-      "steps": 2
     },
     {
       "direction": "north",
-      "steps": 3
+      "steps": 1
     }
   ]
 }

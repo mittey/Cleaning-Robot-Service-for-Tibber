@@ -18,7 +18,7 @@ public class PointTest
     [Fact]
     public void ShouldMoveUp()
     {
-        _testPoint.Move(RobotMovementDirection.Up);
+        _testPoint.Move(RobotMovementDirection.Up, 1);
 
         Assert.Equal(Y + 1, _testPoint.Y);
         Assert.Equal(X, _testPoint.X);
@@ -27,7 +27,7 @@ public class PointTest
     [Fact]
     public void ShouldMoveDown()
     {
-        _testPoint.Move(RobotMovementDirection.Down);
+        _testPoint.Move(RobotMovementDirection.Down, 1);
 
         Assert.Equal(Y - 1, _testPoint.Y);
         Assert.Equal(X, _testPoint.X);
@@ -36,7 +36,7 @@ public class PointTest
     [Fact]
     public void ShouldMoveLeft()
     {
-        _testPoint.Move(RobotMovementDirection.Left);
+        _testPoint.Move(RobotMovementDirection.Left, 1);
 
         Assert.Equal(Y, _testPoint.Y);
         Assert.Equal(X - 1, _testPoint.X);
@@ -45,7 +45,7 @@ public class PointTest
     [Fact]
     public void ShouldMoveRight()
     {
-        _testPoint.Move(RobotMovementDirection.Right);
+        _testPoint.Move(RobotMovementDirection.Right, 1);
 
         Assert.Equal(Y, _testPoint.Y);
         Assert.Equal(X + 1, _testPoint.X);
@@ -54,7 +54,7 @@ public class PointTest
     [Fact]
     public void ShouldThrowIfIncorrectMovementDirectionPassed()
     {
-        Assert.Throws<ArgumentOutOfRangeException>(() => _testPoint.Move((RobotMovementDirection)(-1)));
+        Assert.Throws<ArgumentOutOfRangeException>(() => _testPoint.Move((RobotMovementDirection)(-1), 1));
     }
 
     [Fact]

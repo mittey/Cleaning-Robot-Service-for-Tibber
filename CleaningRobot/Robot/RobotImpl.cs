@@ -3,34 +3,35 @@ using CleaningRobot.Robot.Positioning;
 
 namespace CleaningRobot.Robot;
 
-public sealed class RobotImpl
+public sealed class RobotImpl(Point position, LineSweeper lineSweeper)
 {
-    private readonly VisitableArea _cleaningArea;
-    private readonly Point _position;
+    private int _intersections;
+    private int _totalVisited = 1; // We assume that the first point the robot appears on is also cleaned.
 
-    public RobotImpl(Point initialPosition, VisitableArea cleaningArea)
-    {
-        _cleaningArea = cleaningArea;
-        _position = initialPosition;
-
-        _cleaningArea.Visit(_position);
-    }
-
-
-    public int CleanedArea => _cleaningArea.VisitedCount;
-
-    public void Execute(CleaningRobotCommand command)
-    {
-        for (var i = 0; i < command.Steps; i++)
-        {
-            _position.Move(command.Direction);
-            _cleaningArea.Visit(_position);
-        }
-    }
+    public int CleanedArea => _totalVisited - _intersections;
 
     public void Execute(IEnumerable<CleaningRobotCommand> commandSequence)
     {
+        var events = new List<LineSweeper.LineEvent>();
         foreach (var command in commandSequence)
-            Execute(command);
+        {
+            _totalVisited += command.Steps;
+
+            var p1 = position.Copy();
+            position.Move(command.Direction, command.Steps);
+            var p2 = position.Copy();
+
+            if (p1.X == p2.X) // A "vertical" segment.
+            {
+                events.Add(new LineSweeper.LineEvent(p1.ToVector(), p2.ToVector(), LineSweeper.EventType.Vertical));
+            }
+            else
+            {
+                events.Add(new LineSweeper.LineEvent(p1.ToVector(), p2.ToVector(), LineSweeper.EventType.Start));
+                events.Add(new LineSweeper.LineEvent(p2.ToVector(), p1.ToVector(), LineSweeper.EventType.End));
+            }
+        }
+
+        _intersections = lineSweeper.GetIntersectionsCount(events);
     }
 }
