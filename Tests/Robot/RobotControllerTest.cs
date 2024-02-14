@@ -18,7 +18,7 @@ public class RobotControllerTest
                 new CleaningRobotCommand(RobotMovementDirection.Left, 1),
                 new CleaningRobotCommand(RobotMovementDirection.Up, 1),
                 new CleaningRobotCommand(RobotMovementDirection.Right,
-                    3), // There is an intersection during this command.
+                    3) // There is an intersection during this command.
             ]);
 
         var testResult = new RobotController().Execute(testExecutionPlan);

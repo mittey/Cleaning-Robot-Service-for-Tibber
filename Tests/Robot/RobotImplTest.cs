@@ -16,7 +16,7 @@ public class RobotImplTest
     public RobotImplTest()
     {
         _initialPosition = new Point(InitialX, InitialY);
-        _testRobotImpl = new RobotImpl(_initialPosition, new LineSweeper());
+        _testRobotImpl = new RobotImpl(_initialPosition);
     }
 
 

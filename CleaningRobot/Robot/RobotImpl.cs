@@ -3,7 +3,7 @@ using CleaningRobot.Robot.Positioning;
 
 namespace CleaningRobot.Robot;
 
-public sealed class RobotImpl(Point position, LineSweeper lineSweeper)
+public sealed class RobotImpl(Point position)
 {
     private int _intersections;
     private int _totalVisited = 1; // We assume that the first point the robot appears on is also cleaned.
@@ -23,15 +23,15 @@ public sealed class RobotImpl(Point position, LineSweeper lineSweeper)
 
             if (p1.X == p2.X) // A "vertical" segment.
             {
-                events.Add(new LineSweeper.LineEvent(p1.ToVector(), p2.ToVector(), LineSweeper.EventType.Vertical));
+                events.Add(new LineSweeper.LineEvent(p1.ToVector(), p2.ToVector(), LineSweeper.LineEventType.Vertical));
             }
             else
             {
-                events.Add(new LineSweeper.LineEvent(p1.ToVector(), p2.ToVector(), LineSweeper.EventType.Start));
-                events.Add(new LineSweeper.LineEvent(p2.ToVector(), p1.ToVector(), LineSweeper.EventType.End));
+                events.Add(new LineSweeper.LineEvent(p1.ToVector(), p2.ToVector(), LineSweeper.LineEventType.Start));
+                events.Add(new LineSweeper.LineEvent(p2.ToVector(), p1.ToVector(), LineSweeper.LineEventType.End));
             }
         }
 
-        _intersections = lineSweeper.GetIntersectionsCount(events);
+        _intersections = LineSweeper.GetIntersectionsCount(events);
     }
 }

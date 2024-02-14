@@ -6,6 +6,6 @@ public static class RobotFactory
 {
     public static RobotImpl CreateRobot(Point initialPosition)
     {
-        return new RobotImpl(initialPosition, new LineSweeper());
+        return new RobotImpl(initialPosition);
     }
 }
