@@ -1,3 +1,4 @@
+using Api.Common;
 using Api.Dtos;
 using Api.Dtos.Enums;
 using CleaningRobot.Models;
@@ -25,5 +26,11 @@ public static class CommandMappingService
     {
         return new ExecutionPlan(new Point(executionPlanDto.Start.X, executionPlanDto.Start.Y),
             executionPlanDto.Commands.Select(c => new CleaningRobotCommand(MapDirection(c.Direction), c.Steps)));
+    }
+
+    public static ExecutionResultDto Map(ExecutionResult executionPlan)
+    {
+        return new ExecutionResultDto(executionPlan.AreaCleaned, executionPlan.CommandsCount,
+            TimeUtils.MsToSec(executionPlan.ExecutionTimeInMs));
     }
 }

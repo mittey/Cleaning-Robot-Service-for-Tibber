@@ -1,3 +1,4 @@
+using Api.Common;
 using CleaningRobot.Models;
 using Data.Entities;
 using Data.Repositories;
@@ -15,8 +16,7 @@ public class ExecutionLoggingService(ExecutionLogRepository repository)
             Result = executionResult.AreaCleaned,
             Timestamp = DateTime.UtcNow,
             Commands = executionResult.CommandsCount,
-            Duration = executionResult.ExecutionTimeInMs *
-                       0.001 // Probably this conversion from ms to sec could be moved to a separate place.
+            Duration = TimeUtils.MsToSec(executionResult.ExecutionTimeInMs)
         });
     }
 }

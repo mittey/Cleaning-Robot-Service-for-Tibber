@@ -40,11 +40,11 @@ public static class ServiceConfiguration
 
         // The api endpoint for the task.
         app.MapPost("/tibber-developer-test/enter-path",
-                (ExecutionPlanDto executionPlanDto, CleaningRobotService cleaningRobotService) =>
+                async (ExecutionPlanDto executionPlanDto, CleaningRobotService cleaningRobotService) =>
                 {
                     var executionPlan = CommandMappingService.Map(executionPlanDto);
 
-                    return cleaningRobotService.ExecuteAsync(executionPlan);
+                    return CommandMappingService.Map(await cleaningRobotService.ExecuteAsync(executionPlan));
                 })
             .WithName("RunCleaningRobot")
             .WithOpenApi();
